@@ -1,0 +1,50 @@
+[ 
+{
+	"description":"1-创建订单接口",
+	"request":{
+		"uri":"/api/order/create/",
+		"method":"POST",
+		"headers":{
+					"Content-Type":"application/json"
+				},
+		"json":{
+					"user_id": "sq123456",
+					"goods_id": "20200815",
+					"num":1,
+					"amount":200.6
+				}
+		},
+	"response":{
+		"status":200,
+		"headers":{
+				"Content-Type":"application/json"
+				},
+		"json":{
+				"order_id": "6666"
+			}
+	}
+},
+{
+	"description":"2-查询订单接口",
+	"request":{
+		"uri":"/api/order/get_result/",
+		"method":"GET",
+		"queries":{
+					"order_id": "6666"
+				}
+		},
+	"response":{
+		"status":200,
+		"headers":{
+				"Content-Type":"application/json"
+				},
+		"json":{
+					"user_id": "sq123456",
+					"goods_id": "20200815",
+					"num":1,
+					"amount":200.6,
+					"msg": "success"
+			}
+	}
+}
+]

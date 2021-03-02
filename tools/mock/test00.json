@@ -1,0 +1,239 @@
+[ 
+{
+	"description":"demo1=约定URI",
+	"request":{
+		"uri":"/xintian_sq01"
+		},
+	"response":{
+		"text":"Hello,sq"
+	}
+},
+{
+	"description":"demo2=约定请求参数",
+	"request":{
+		"uri":"/demo2",
+		"queries":{
+			"key1":"abc",
+			"key2":"123"
+		  }
+		},
+	"response":{
+		"text":"Hello,demo2"
+	}
+},
+
+{
+	"description":"demo3=约定请求方法",
+	"request":{
+		"method":"DELETE"
+		},
+	"response":{
+		"text":"Hello,demo3"
+	}
+},
+
+{
+	"description":"demo4=约定请求头",
+	"request":{
+		"headers":{
+			"Content-Type":"application/xml"
+			}
+		},
+	"response":{
+		"text":"Hello,demo4"
+	}
+},
+
+{
+	"description":"demo5=约定请求体参数-form",
+	"request":{
+		"forms":{
+			"key1":"abc"
+			}
+		},
+	"response":{
+		"text":"Hello,demo5"
+	}
+},
+
+{
+	"description":"demo6=约定请求体参数-json",
+	"request":{
+		"json":{
+				"key1":"value1",
+				"key2":"value2"
+			}
+		},
+	"response":{
+		"text":"Hello,demo6"
+	}
+},
+{
+	"description":"demo7=uri-startsWith匹配",
+	"request":{ 
+		"uri":{
+				"startsWith":"/sq"
+			}
+		},
+	"response":{
+		"text":"Hello,demo7"
+	}
+},
+{
+	"description":"demo8=uri-endsWith匹配",
+	"request":{ 
+		"uri":{
+				"endsWith":"sq"
+			}
+		},
+	"response":{
+		"text":"Hello,demo8"
+	}
+},
+{
+	"description":"demo9=uri-contain匹配",
+	"request":{ 
+		"uri":{
+				"contain":"fcl"
+			}
+		},
+	"response":{
+		"text":"Hello,demo9"
+	}
+},
+{
+	"description":"demo10=响应状态码",
+	"request":{ 
+		"uri":"demo10"
+		},
+	"response":{
+		"status":200
+	}
+},
+{
+	"description":"demo11=响应头",
+	"request":{ 
+		"uri":"demo11"
+		},
+	"response":{
+		"headers":{
+			"Content-Type":"application/json"
+		}
+	}
+},
+{
+	"description":"demo12=重定向",
+	"request":{ 
+		"uri":"demo12"
+		},
+	"redirectTo":"http://www.baidu.com"
+	
+},
+{
+	"description":"demo13=支付接口",
+	"request":{ 
+        "method":"POST",
+		"uri":"/trade/purchase",
+        "headers":{
+			       "Content-Type":"application/json"
+			    }
+        },
+	"response":{
+		"headers":{
+			"Content-Type":"application/json"
+            },
+        "status":200,
+        "json":{
+                "code":"40004",
+                "msg":"Business Failed",
+                "sub_code":"ACQ.TRADE_HAS_SUCCESS",
+                "sub_msg":"交易已被支付",
+                "trade_no":"2013112011001004330000121536",
+                "out_trade_no":"6823789339978248"
+            }
+        
+        }
+},
+{
+	"description":"新增课程",
+	"request":{ 
+        "method":"POST",
+		"uri":"/api/mgr/sq_mgr/",
+        "headers":{
+			       "Content-Type":"application/x-www-form-urlencoded"
+			    },
+        "forms":{
+			"action":"add_course",
+			"data":"{'name':'xxx','desc':'xxx','display_idx':'4'}"
+            }
+        },
+	"response":{
+		"headers":{
+			"Content-Type":"application/json"
+            },
+        "status":200,
+        "json":{
+                "retcode":0,
+                "reason":"1234"
+            }
+        
+        }
+},
+{
+	"description":"支付接口-mock",
+	"request":{ 
+        "method":"POST",
+		"uri":"/trade/purchase",
+        "headers":{
+			       "Content-Type":"application/json"
+			    },
+        "json":{
+                    "out_trade_no":"20150320010101001",
+                    "auth_code":"28763443825664394",
+                    "buyer_id":"2088202954065786",
+                    "seller_id":"2088102146225135",
+                    "subject":"Iphone6",
+                    "total_amount":"88.88"
+            }
+        },
+	"response":{
+		"headers":{
+			"Content-Type":"application/json"
+            },
+        "status":200,
+        "json":{
+                "code":"40004",
+                "msg":"Business Failed",
+                "sub_code":"ACQ.TRADE_HAS_SUCCESS",
+                "sub_msg":"交易已被支付",
+                "trade_no":"2013112011001004330000121536",
+                "out_trade_no":"6823789339978248"
+            }
+        
+        }
+},
+{
+	"description":"教管系统-登录接口",
+	"request":{
+		"uri":"/api/mgr/loginReq",
+		"method":"POST",
+		"headers":{
+					"Content-Type":"application/x-www-form-urlencoded"
+				},
+		"forms":{
+					"username":"auto",
+					"password":"xxxxxx"
+				}
+		},
+	"response":{
+		"status":200,
+		"headers":{
+				"Content-Type":"application/json"
+				},
+		"json":{
+				"retcode":1,
+				"reason":"password error"
+			}
+	}
+}
+]

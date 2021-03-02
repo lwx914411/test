@@ -1,0 +1,162 @@
+#-用例模板实例：
+#  模块名称: 登录接口
+#  测试用例ID: sLogin001
+#  测试用例名称: 账号密码正确，登录成功
+#  测试步骤:
+#    -
+#      接口名称: get接口
+#      请求方式: get
+#      请求头:
+#        { "Content-Type": "application/x-www-form-urlencoded" }
+#      请求参数:
+#        {
+#          "参数key1": 参数value1,
+#          "参数key2": 参数value2
+#        }
+#      预期结果:
+#        {
+#          "结果1": [ 预期结果,结果取值路径 ],
+#          "结果2": [ 预期结果,结果取值路径 ],
+#          "结果3": [ 预期结果,结果取值路径 ]
+#        }
+#      返回取值:
+#        {
+#          "变量名1": 取值路径,
+#          "变量名2": 取值路径
+#        }
+#    - 接口名称: post接口
+#      请求方式: post
+#      请求头:
+#        { "Content-Type": "Content-Type: application/json" }
+#      请求参数:
+#        {
+#          "参数key1": 参数value1,
+#          "参数key2": 参数value2
+#        }
+#      预期结果:
+#        {
+#          "结果1": [ 预期结果,结果取值路径 ],
+#          "结果2": [ 预期结果,结果取值路径 ],
+#          "结果3": [ 预期结果,结果取值路径 ]
+#        }
+#      返回取值:
+#        {
+#          "变量名1": 取值路径,
+#          "变量名2": 取值路径
+#        }
+#    - 接口名称: 上传接口
+#      请求方式: post
+#      请求头:
+#        { "Content-Type": "multipart/form-data" }
+#      请求参数:
+#        [
+#          {"文件名1":"文件存储路径1"},
+#          {"文件名2":"文件存储路径2"}
+#        ]
+#      预期结果:
+#        {
+#          "结果1": [ 预期结果,结果取值路径 ],
+#          "结果2": [ 预期结果,结果取值路径 ],
+#          "结果3": [ 预期结果,结果取值路径 ]
+#        }
+#      返回取值:
+#        {
+#          "变量名1": 取值路径,
+#          "变量名2": 取值路径
+#        }
+-
+  模块名称: 成员管理
+  测试用例ID: user001
+  测试用例名称: 所有数据正确，成功获取部门成员信息
+  测试步骤:
+    -
+      接口名称: 获取access_token
+      请求方式: get
+      请求头: { 'Content-Type': 'application/x-www-form-urlencoded' }
+      请求地址: /cgi-bin/gettoken
+      请求参数: {"corpid":"$corpid","corpsecret":"$corpsecret"}
+      预期结果:
+        {
+          "errcode": [ 0,errcode ],
+          "errmsg": [ ok,errmsg ],
+          "expires_in": [ 7200,expires_in ]
+        }
+      返回取值: {'access_token':'access_token','errcode':'errcode'}
+    - 接口名称: 获取部门成员
+      请求方式: get
+      请求头:
+        Content-Type: application/x-www-form-urlencoded
+      请求地址: /cgi-bin/user/simplelist
+      请求参数:
+        access_token: $access_token
+        department_id: 1
+      预期结果:
+        {
+          "errcode": [ 0,errcode ],
+          "errmsg": [ ok,errmsg ]
+        }
+      返回取值: {}
+-
+  模块名称: 部门管理
+  测试用例ID: user002
+  测试用例名称: 所有数据正确，成功获取部门成员信息002
+  测试步骤:
+    -
+      接口名称: 获取access_token
+      请求方式: get
+      请求头: { 'Content-Type': 'application/x-www-form-urlencoded' }
+      请求地址: /cgi-bin/gettoken
+      请求参数: {"corpid":"$corpid","corpsecret":"$corpsecret"}
+      预期结果:
+        {
+        "errcode": [0,errcode],
+        "errmsg": [ok,errmsg],
+        "expires_in": [7200,expires_in]
+        }
+      返回取值: {'access_token':'access_token','errcode':'errcode'}
+    - 接口名称: 获取部门成员
+      请求方式: get
+      请求头:
+        Content-Type: application/x-www-form-urlencoded
+      请求地址: /cgi-bin/user/simplelist
+      请求参数:
+        access_token: $access_token
+        department_id: 1
+      预期结果:
+        {
+          "errcode": [ 0,errcode ],
+          "errmsg": [ ok,errmsg ]
+        }
+      返回取值: {}
+    -
+      接口名称: 获取access_token001
+      请求方式: get
+      请求头: { 'Content-Type': 'application/x-www-form-urlencoded' }
+      请求地址: /cgi-bin/gettoken
+      请求参数: {"corpid":"$corpid","corpsecret":"$corpsecret"}
+      预期结果:
+        {
+          "errcode": [ 0,errcode ],
+          "errmsg": [ ok,errmsg ],
+          "expires_in": [ 7200,expires_in ]
+        }
+      返回取值:
+-
+  模块名称: 部门管理
+  测试用例ID: user003
+  测试用例名称: 所有数据正确，成功获取部门成员信息003
+  测试步骤:
+    - 接口名称: 获取部门成员
+      请求方式: get
+      请求头:
+        Content-Type: application/x-www-form-urlencoded
+      请求地址: /cgi-bin/user/simplelist
+      请求参数:
+        access_token: $access_token
+        department_id: 1
+      预期结果:
+        {
+          "errcode": [ 0,errcode ],
+          "errmsg": [ ok,errmsg ]
+        }
+      返回取值: {}

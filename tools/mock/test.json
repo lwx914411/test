@@ -1,0 +1,47 @@
+[ 
+{
+	"description":"demo1=约定URI",
+	"request":{
+		"uri":"/xintian_sq"
+		},
+	"response":{
+		"text":"Hello,sq"
+	}
+},
+{
+	"description":"demo1=约定URI2",
+	"request":{
+		"uri":"/xintian"
+		},
+	"response":{
+		"text":"Hello,xt"
+	}
+},
+{
+	"description":"demo2=约定请求参数-3",
+	"request":{
+		"uri":"/xintian2",
+		"queries":{
+			"key1":"abc",
+			"key2":"123"
+		  }
+		},
+	"response":{
+		"text":"Hello,demo2"
+	}
+},
+{
+	"description":"demo5=约定请求体参数-form",
+	"request":{
+		"method":"POST",
+		"uri":"/xt3",
+		"forms":{
+			"key1":"abc"
+			}
+		},
+	"response":{
+		"text":"Hello,xt3"
+	}
+}
+
+]
